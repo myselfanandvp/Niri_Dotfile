@@ -1,0 +1,139 @@
+[general]
+import = ["~/.cache/wal/colors.toml"]
+
+[window]
+# Semi-transparent, let Hyprland compositor handle actual transparency
+opacity = 0.85
+# Remember window position (optional)
+startup_mode = "Windowed"
+
+
+[font]
+#normal                = { family = "JetBrainsMonoNL Nerd Font Mono", style = "Medium" }
+#bold                  = { family = "FantasqueSansMNerdFont Propo", style = "Bold" }
+#italic                = { family = "FantasqueSansMNerdFont Propo", style = "Italic" }
+#bold_italic           = { family = "FantasqueSansMNerdFont Propo", style = "Bold Italic" }
+size                  = 11.25
+offset                = { x = 0, y = 0 }
+glyph_offset          = { x = 0, y = 0 }
+
+
+
+
+
+
+
+
+# catpuccin-mocha, ported from .yml
+[colors.primary]
+background            = "#1E1E2E"
+foreground            = "#CDD6F4"
+dim_foreground        = "#CDD6F4"
+bright_foreground     = "#CDD6F4"
+
+[colors.cursor]
+text                  = "#1E1E2E"
+cursor                = "#F5E0DC"
+
+[colors.vi_mode_cursor]
+text                  = "#1E1E2E"
+cursor                = "#B4BEFE"
+
+[colors.search.matches]
+foreground            = "#1E1E2E"
+background            = "#A6ADC8"
+
+[colors.search.focused_match]
+foreground            = "#1E1E2E"
+background            = "#A6E3A1"
+
+[colors.hints.start]
+foreground            = "#1E1E2E"
+background            = "#F9E2AF"
+
+[colors.hints.end]
+foreground            = "#1E1E2E"
+background            = "#A6ADC8"
+
+[colors.line_indicator]
+#foreground            = "None"
+#background            = "None"
+
+[colors.footer_bar]
+foreground            = "#1E1E2E"
+background            = "#A6ADC8"
+
+[colors.selection]
+text                  = "#1E1E2E"
+background            = "#F5E0DC"
+
+[colors.normal]
+black                 = "#45475A"
+red                   = "#F38BA8"
+green                 = "#A6E3A1"
+yellow                = "#F9E2AF"
+blue                  = "#89B4FA"
+magenta               = "#F5C2E7"
+cyan                  = "#94E2D5"
+white                 = "#BAC2DE"
+
+[colors.bright]
+black                 = "#585B70"
+red                   = "#F38BA8"
+green                 = "#A6E3A1"
+yellow                = "#F9E2AF"
+blue                  = "#89B4FA"
+magenta               = "#F5C2E7"
+cyan                  = "#94E2D5"
+white                 = "#A6ADC8"
+
+[colors.dim]
+black                 = "#45475A"
+red                   = "#F38BA8"
+green                 = "#A6E3A1"
+yellow                = "#F9E2AF"
+blue                  = "#89B4FA"
+magenta               = "#F5C2E7"
+cyan                  = "#94E2D5"
+white                 = "#BAC2DE"
+
+[colors]
+indexed_colors = [
+  { index = 16, color = "#FAB387" },
+  { index = 17, color = "#F5E0DC" },
+]
+#transparent_background_colors = false
+draw_bold_text_with_bright_colors = true
+
+[bell]
+animation             = "EaseOutExpo"
+duration              = 0
+color                 = "#C0C5CE"
+#command               = { program = "notify-send", args = ["alacritty", "bell",] }
+
+[selection]
+#semantic_escape_chars = ",│‘|:"' ()[]{}<>t"
+save_to_clipboard     = true
+
+[cursor.style]
+shape                 = "Beam"
+blinking              = "Always"
+
+[cursor.vi_mode_style]
+shape                 = "Block"
+blinking              = "Off"
+
+[cursor]
+blink_interval        = 500
+blink_timeout         = 0
+#unfocused_hollow      = true
+#thickness             = 0.15
+
+[terminal]
+#osc52                 = "OnlyCopy"
+
+[mouse]
+hide_when_typing      = true
+bindings = [
+  { mouse = "Middle", action = "PasteSelection" },
+]

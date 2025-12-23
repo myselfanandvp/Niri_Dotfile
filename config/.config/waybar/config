@@ -1,0 +1,199 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "height": 40,
+  "spacing": 2,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "passthrough": false,
+  "fixed-center": true,
+  "modules-left": ["niri/workspaces", "mpris"],
+  "modules-center": ["niri/window"],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "backlight",
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "battery",
+    "custom/wallpaper",
+    "clock",
+    "clock#simpleclock",
+    "tray",
+    "custom/power"
+  ],
+  "niri/workspaces": {
+    "format": "{name}",
+    "on-click": "activate"
+  },
+  "niri/window": {
+    "format": "{title}",
+    "max-length": 50
+  },
+"network": {
+    "format-wifi": "📶 {essid}",
+    "format-ethernet": "🌐 {ifname}",
+    "format-disconnected": "📡 Disconnected",
+    "format-disabled": "📡 WiFi Off",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}\nSignal: {signalStrength}%",
+    "tooltip-format-wifi": "📶 {essid} ({signalStrength}%)\n{ipaddr}/{cidr}\nFrequency: {frequency}MHz",
+    "tooltip-format-ethernet": "🌐 {ifname}\n{ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "Disconnected - Click to toggle WiFi",
+    "tooltip-format-disabled": "WiFi is OFF - Click to turn ON",
+    "on-click": "~/.config/waybar/scripts/wifi-selector.sh toggle",
+    "on-click-right": "~/.config/waybar/scripts/wifi-selector.sh menu",
+    "interval": 120
+},
+  "bluetooth": {
+    "format": "ᛒ {status}",
+    "format-disabled": ">ᛒ Off",
+    "format-off": ">ᛒ Off",
+    "format-on": "ᚼᛒ On",
+    "format-connected": "ᚼᛒ {device_alias}",
+    "format-connected-battery": "ᚼᛒ {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "~/.config/waybar/scripts/bluetooth-selector.sh toggle",
+    "on-click-right": "~/.config/waybar/scripts/bluetooth-selector.sh menu",
+    "interval": 120
+  },
+  "custom/spotify": {
+    "format": "  {}",
+    "return-type": "json",
+    "on-click": "playerctl -p spotify play-pause",
+    "on-click-right": "spotifatius toggle-liked",
+    "on-click-middle": "playerctl -p spotify next",
+    "exec": "spotifatius monitor",
+    "restart-interval": 120
+  },
+  "mpris": {
+    "player": "spotify",
+    "dynamic-order": ["artist", "title"],
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "player-icons": {
+      "default": "▶"
+    },
+    "interval": 5,
+    "max-length": 50
+  },
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 10
+  },
+  "clock#simpleclock": {
+    "tooltip": false,
+    "format": "🕐 {:%I:%M %p}",
+    "interval": 60
+  },
+  "clock": {
+    "format": "📅 {:L%a %d %b}",
+    "interval": 60,
+    "calendar": {
+      "format": {
+        "days": "<span weight='normal'>{}</span>",
+        "months": "<span color='#cdd6f4'><b>{}</b></span>",
+        "today": "<span color='#f38ba8' weight='700'><u>{}</u></span>",
+        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+        "weeks": "<span color='#a6e3a1'><b>W{}</b></span>"
+      },
+      "mode": "month",
+      "mode-mon-col": 1,
+      "on-scroll": 1
+    },
+    "tooltip-format": "<span color='#cdd6f4' font='Lexend 16'><tt><small>{calendar}</small></tt></span>"
+  },
+  "battery": {
+    "states": {
+      "full": 100,
+      "critical": 20,
+      "warning": 50
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "⚡ {capacity}%",
+    "format-full": "🔋 {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "interval": 120
+  },
+  "cpu": {
+    "format": "💻 {usage}%",
+    "tooltip": true,
+    "interval": 5,
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+  "memory": {
+    "format": "🧠 {used:0.1f}Gi",
+    "interval": 5,
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+  "backlight": {
+    "device": "amdgpu_bl1",
+    "format": "{icon} {percent}%",
+    "format-icons": ["🔅", "🔆"],
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "min-length": 6,
+    "interval": 120
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "🔇 muted",
+    "format-icons": {
+      "headphone": "🎧",
+      "default": ["🔈", "🔉", "🔊"]
+    },
+    "on-click": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "scroll-step": 5,
+    "smooth-scrolling-threshold": 1,
+    "max-volume": 100,
+    "interval": 120
+  },
+  "custom/sep": {
+    "format": "|",
+    "tooltip": false
+  },
+  "custom/wallpaper": {
+    "format": "🖼️ {}",
+    "interval": 1,
+    "on-click": "~/.config/waybar/scripts/wallpaper-switcher.sh next",
+    "on-click-right": "~/.config/waybar/scripts/wallpaper-switcher.sh prev",
+    "on-click-middle": "~/.config/waybar/scripts/wallpaper-switcher.sh random",
+    "tooltip": true,
+    "tooltip-format": "Left: Next | Right: Previous | Middle: Random"
+  },
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "wlogout",
+    "format": "⏻"
+  },
+  "custom/notification": {
+    "escape": true,
+    "exec": "swaync-client -swb",
+    "exec-if": "which swaync-client",
+    "format": "{icon}",
+    "format-icons": {
+      "dnd-on": "🔕",
+      "dnd-off": "🔔",
+      "none": "🔔",
+      "notification": "🔔"
+    },
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "return-type": "json",
+    "tooltip": false,
+    "interval": 20
+  }
+}

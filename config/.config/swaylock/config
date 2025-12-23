@@ -1,0 +1,24 @@
+# ~/.config/swaylock/config
+
+# Image and indicator options
+image=$(cat ~/.config/niri/current_wallpaper)
+indicator-radius=100
+indicator-thickness=15
+text-color=cdd6f4
+text-clear-color=fab387
+text-caps-lock-color=f9e2af
+text-ver-color=a6e3a1
+text-wrong-color=f38ba8
+
+# Clock and effects (requires swaylock-effects)
+#clock
+#clock-font=Fira Code SemiBold
+#clock-size=32
+#clock-color=cdd6f4
+#clock-format=%H:%M
+
+# Font and position
+#font=Fira Code SemiBold
+#font-size=20
+#indicator-x-position=50%
+#indicator-y-position=60%
