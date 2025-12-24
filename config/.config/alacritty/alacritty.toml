@@ -3,7 +3,7 @@ import = ["~/.cache/wal/colors.toml"]
 
 [window]
 # Semi-transparent, let Hyprland compositor handle actual transparency
-opacity = 0.85
+opacity = 9
 # Remember window position (optional)
 startup_mode = "Windowed"
 

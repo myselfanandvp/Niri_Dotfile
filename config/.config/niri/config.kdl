@@ -138,7 +138,8 @@ window-rule {
 binds {
     // Help overlay
     Mod+Shift+Slash { show-hotkey-overlay; }
-
+    Mod+T { spawn "alacritty"; } // Spawns the alacritty terminal
+    Mod+A { spawn "fuzzel"; } // Spawns the fuzzel application launcher
     // Launch applications
     //Mod+RETURN hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+RETURN hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
